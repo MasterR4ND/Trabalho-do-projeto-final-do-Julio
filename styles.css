@@ -1,0 +1,308 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+  }
+  
+  :root {
+    --purple-dark: #2D1B36;
+    --purple-main: #4A2B5F;
+    --purple-light: #8B4B9B;
+    --purple-accent: #BE6DB7;
+    --purple-fade: #D8B4E2;
+    --text-light: #F4E8F6;
+    --text-dark: #1A1A1A;
+  }
+  
+ 
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }
+  
+
+  html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1 0 auto;
+}
+  
+  h1, h2, h3 {
+    color: var(--purple-light);
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: var(--purple-dark);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.5s ease-out;
+  }
+  
+  .logo {
+    color: var(--purple-accent);
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .logo:hover {
+    color: var(--purple-fade);
+  }
+  
+  .nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin-left: 2rem;
+    transition: all 0.3s;
+    position: relative;
+  }
+  
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--purple-accent);
+    transition: width 0.3s;
+  }
+  
+  .nav-links a:hover::after,
+  .nav-links a.active::after {
+    width: 100%;
+  }
+  
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--purple-accent);
+  }
+  
+  .hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('https://manofmany.com/_next/image?url=https%3A%2F%2Fapi.manofmany.com%2Fwp-content%2Fuploads%2F2023%2F06%2F40-Best-Tattoo-Ideas-for-Men.jpg&w=1200&q=75');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+  
+  section {
+    padding: 5rem 2rem;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: var(--purple-main);
+  }
+  
+  .about, .gallery, .faq {
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .gallery-grid img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .gallery-grid img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .gallery-grid img:nth-child(1) { animation-delay: 0.1s; }
+  .gallery-grid img:nth-child(2) { animation-delay: 0.2s; }
+  .gallery-grid img:nth-child(3) { animation-delay: 0.3s; }
+  .gallery-grid img:nth-child(4) { animation-delay: 0.4s; }
+  .gallery-grid img:nth-child(5) { animation-delay: 0.5s; }
+  .gallery-grid img:nth-child(6) { animation-delay: 0.6s; }
+  
+  .faq-item {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    padding: 1.5rem;
+    background: var(--text-light);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .faq-item:hover {
+    transform: translateY(-3px);
+  }
+  
+  .faq-item:nth-child(1) { animation-delay: 0.1s; }
+  .faq-item:nth-child(2) { animation-delay: 0.2s; }
+  .faq-item:nth-child(3) { animation-delay: 0.3s; }
+  
+  .faq-item h3 {
+    color: var(--purple-main);
+    margin-bottom: 0.5rem;
+  }
+  
+ footer {
+  flex-shrink: 0;
+  background: var(--purple-dark);
+  color: var(--text-light);
+  text-align: center;
+  padding: 2rem;
+  margin-top: auto;
+}
+  
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      padding: 1rem;
+    }
+  
+    .nav-links {
+      margin-top: 1rem;
+    }
+  
+    .nav-links a {
+      margin: 0 1rem;
+      font-size: 0.9rem;
+    }
+  
+    .hero h1 {
+      font-size: 2rem;
+    }
+  
+    section {
+      padding: 3rem 1rem;
+    }
+  
+    h2 {
+      font-size: 2rem;
+    }
+  }
+
+  .about-section {
+    padding: 8rem 2rem 5rem;
+    background: linear-gradient(135deg, var(--purple-fade) 0%, var(--text-light) 100%);
+    min-height: calc(100vh - 60px);
+}
+
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.about-text {
+    padding-right: 2rem;
+}
+
+.about-text h2 {
+    color: var(--purple-dark);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.about-text h3 {
+    color: var(--purple-main);
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1rem;
+}
+
+.about-text p {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.about-image {
+    position: relative;
+    animation: fadeIn 1s ease-out 0.3s both;
+}
+
+.about-image img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive Design for About Page */
+@media (max-width: 968px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-text {
+        padding-right: 0;
+    }
+
+    .about-image img {
+        height: 400px;
+    }
+}
